@@ -1,12 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
+import { Suspense } from 'react';
+import { CacheProvider } from 'rest-hooks';
 import { StyleSheet, Text, View } from 'react-native';
+import PostList from './PostList';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <CacheProvider>
+      <View style={styles.container}>
+        <Suspense>
+          <PostList />
+        </Suspense>
+      </View>
+    </CacheProvider>
   );
 }
 
